@@ -6,13 +6,45 @@
 
 ```css
 .foo {
-  /* Input example */
+  stepped-font-size: 80px, 20px, (576px, 768px, 992px, 1200px, 1400px);
 }
 ```
 
 ```css
 .foo {
-  /* Output example */
+  // ensuring the display in different browsers
+  min-width: 0vw;
+  line-height: normal;
+}
+@media (max-width: 576px) {
+  .foo {
+    font-size: 20px;
+  }
+}
+@media (min-width: 576px) and (max-width: 768px) {
+  .foo {
+    font-size: 34px;
+  }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .foo {
+    font-size: 50.3px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .foo {
+    font-size: 65.4px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1400px) {
+  .foo {
+    font-size: 80px;
+  }
+}
+@media (min-width: 1400px) {
+  .foo {
+    font-size: 80px;
+  }
 }
 ```
 
