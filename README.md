@@ -5,14 +5,15 @@
 [PostCSS]: https://github.com/postcss/postcss
 
 ```css
+  /* Input example */
 .foo {
   stepped-font-size: 80px, 20px, (576px, 768px, 992px, 1200px, 1400px);
 }
 ```
 
 ```css
+/* Output example */
 .foo {
-  // ensuring the display in different browsers
   min-width: 0vw;
   line-height: normal;
 }
