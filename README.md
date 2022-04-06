@@ -76,3 +76,22 @@ module.exports = {
 ```
 
 [official docs]: https://github.com/postcss/postcss#usage
+
+# Tailwindcss Plugin
+```
+theme: {
+  fontSize: {
+    base: [
+      '24px',
+      {
+        lineHeight: '1em',
+        letterSpacing: '0.1em',
+        fontWeigt: '600',
+      },
+      {
+        minFontSize: '16px', // <- This needs to be added.
+      },
+    ],
+  },
+},
+```
