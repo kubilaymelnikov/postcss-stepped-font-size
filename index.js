@@ -2,23 +2,8 @@
  * @type {import('postcss').PluginCreator}
  */
 module.exports = () => {
-  // Work with options here
-
   return {
-    // https://github.com/postcss/postcss/blob/main/docs/writing-a-plugin.md
     postcssPlugin: "postcss-stepped-font-size",
-    /*
-    Root (root, postcss) {
-      // Transform CSS AST here
-    }
-    */
-
-    /*
-    Declaration (decl, postcss) {
-      // The faster way to find Declaration node
-    }
-    */
-
     Declaration: {
       "stepped-font-size": (decl) => {
         const splitValuAndUnit = (size) => ({
