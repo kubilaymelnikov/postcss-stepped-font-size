@@ -23,7 +23,8 @@ module.exports = () => {
           .exec(decl.value)[1]
           .replaceAll(" ", "")
           .split(",")
-          .map(splitValuAndUnit);
+          .map(splitValuAndUnit)
+          .sort((x, y) => x.value - y.value);
 
         const maxWidth = breakpoints[breakpoints.length - 1];
         const minWidth = breakpoints.shift();
