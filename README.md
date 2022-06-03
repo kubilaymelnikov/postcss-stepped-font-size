@@ -93,5 +93,6 @@ theme: {
       },
     ],
   },
+  steppedFontSize: ['sm', 'md', 'lg', 'xl', 'xxl'], // <- Your own breakpoints must be in this array.
 },
 ```
