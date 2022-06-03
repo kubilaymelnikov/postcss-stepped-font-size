@@ -1,8 +1,17 @@
-const plugin = require('tailwindcss/plugin')
+const plugin = require("tailwindcss/plugin");
 
-module.exports = plugin(function ({ matchUtilities, theme }) {
-  const breakpointsString = Object.values(theme('screens')).join(', ')
-  const fontSize = theme('fontSize')
+module.exports = plugin(function ({ matchUtilities, theme, config }) {
+  const allowed = config("steppedFontSize")
+    ? config("steppedFontSize")
+    : ["sm", "md", "lg", "xl", "xxl"];
+  const screens = Object.keys(theme("screens"))
+    .filter((key) => allowed.includes(key))
+    .reduce((obj, key) => {
+      obj[key] = raw[key];
+      return obj;
+    }, {});
+  const breakpointsString = Object.values(screens).join(", ");
+  const fontSize = theme("fontSize");
   const values = Object.keys(fontSize)
     .filter((a) => fontSize[a][2] && fontSize[a][2].minFontSize)
     .reduce(
@@ -11,7 +20,7 @@ module.exports = plugin(function ({ matchUtilities, theme }) {
         [b]: fontSize[b],
       }),
       {}
-    )
+    );
 
   matchUtilities(
     {
@@ -21,5 +30,5 @@ module.exports = plugin(function ({ matchUtilities, theme }) {
       }),
     },
     { values }
-  )
-})
+  );
+});
