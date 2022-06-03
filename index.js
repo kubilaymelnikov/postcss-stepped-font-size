@@ -8,7 +8,7 @@ module.exports = () => {
       "stepped-font-size": (decl) => {
         const splitValuAndUnit = (size) => ({
           _: size,
-          value: parseFloat(/[0-9]+/.exec(size)[0]),
+          value: parseFloat(/[.0-9]+/.exec(size)[0]),
           unit: /[a-z]+/i.exec(size)[0],
         });
         const selector = decl.parent.selector;
