@@ -2,7 +2,12 @@
   "name": "postcss-stepped-font-size",
   "version": "0.0.2",
   "description": "PostCSS plugin to generate stepped font size.",
-  "keywords": ["postcss", "css", "postcss-plugin", "postcss-stepped-font-size"],
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "postcss-stepped-font-size"
+  ],
   "scripts": {
     "test": "jest --coverage && eslint ."
   },
@@ -24,13 +29,18 @@
   },
   "eslintConfig": {
     "parserOptions": {
-      "ecmaVersion": 2017
+      "ecmaVersion": 2022,
+      "parser": "@babel/eslint-parser",
+      "requireConfigFile": false
     },
     "env": {
       "node": true,
       "es6": true
     },
-    "extends": ["eslint:recommended", "plugin:jest/recommended"],
+    "extends": [
+      "eslint:recommended",
+      "plugin:jest/recommended"
+    ],
     "rules": {
       "jest/expect-expect": "off"
     }

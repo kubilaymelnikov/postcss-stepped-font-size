@@ -4,23 +4,18 @@ module.exports = plugin(function ({ matchUtilities, theme, config }) {
   const allowed = config("steppedFontSize")
     ? config("steppedFontSize")
     : ["sm", "md", "lg", "xl", "xxl"];
-  const screens = Object.keys(theme("screens"))
+  const screensUnfiltert = theme("screens");
+  const screens = Object.keys(screensUnfiltert)
     .filter((key) => allowed.includes(key))
     .reduce((obj, key) => {
-      obj[key] = raw[key];
+      obj[key] = screensUnfiltert[key];
       return obj;
     }, {});
   const breakpointsString = Object.values(screens).join(", ");
   const fontSize = theme("fontSize");
   const values = Object.keys(fontSize)
     .filter((a) => fontSize[a][2] && fontSize[a][2].minFontSize)
-    .reduce(
-      (a, b) => ({
-        ...a,
-        [b]: fontSize[b],
-      }),
-      {}
-    );
+    .reduce((a, b) => ({ ...a, [b]: fontSize[b] }), {});
 
   matchUtilities(
     {
