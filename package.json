@@ -1,6 +1,6 @@
 {
   "name": "postcss-stepped-font-size",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "PostCSS plugin to generate stepped font size.",
   "keywords": [
     "postcss",
