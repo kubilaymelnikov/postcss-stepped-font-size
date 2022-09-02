@@ -14,14 +14,14 @@ module.exports = () => {
         const selector = decl.parent.selector;
         const fontSizes = /(.*?)\(/
           .exec(decl.value)[1]
-          .replaceAll(" ", "")
+          .replace(/(\s)/g, "")
           .split(",")
           .filter((_) => !!_)
           .map(splitValuAndUnit);
 
         const breakpoints = /\((.*?)\)/
           .exec(decl.value)[1]
-          .replaceAll(" ", "")
+          .replace(/(\s)/g, "")
           .split(",")
           .map(splitValuAndUnit)
           .sort((x, y) => x.value - y.value);
