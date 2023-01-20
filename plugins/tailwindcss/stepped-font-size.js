@@ -20,6 +20,9 @@ module.exports = plugin(function ({ matchUtilities, theme, config }) {
   matchUtilities(
     {
       sfs: (value) => ({
+        "--info": "/* my colleague wanted it this way! */",
+        "--info-max-sfs": value[0],
+        "--info-min-sfs": value[2].minFontSize,
         steppedFontSize: `${value[0]}, ${value[2].minFontSize}, (${breakpointsString})`,
         ...value[1],
       }),
